@@ -4,7 +4,7 @@ const port = '3000'
 app.set('port', 3000)
 
 app.get('/', (req, res) => {
-    res.send(require('public/index.html'))
+    res.sendFile('public/index.html')
 })
 
 app.listen(app.get('port'), () => {
