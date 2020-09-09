@@ -33,9 +33,9 @@ function getTasks() {
     for (let i = 0; i < tasks.length; i++) {
         let title = tasks[i].titulo
         let description = tasks[i].description
-        tasksView.innerHTML += `<div class="card mb-2 bg-secondary">
-        <div class="body p-3 bg-dark">
-        <p class="card bg-secondary text-white text-center">${title}</p>
+        tasksView.innerHTML += `<div class="card mb-2 bg-transparent">
+        <div class="body p-3">
+        <p class="card bg-transparent text-white text-center">${title}</p>
         <p class="text-white pt-1">${description}</p>
         <a class="btn btn-success" onClick="deleteTask(${i})">Ok</a>
         </div>
