@@ -4,8 +4,8 @@ function saveTask(info) {
     info.preventDefault()
     let title = document.getElementById('title').value
     let descripcion = document.getElementById('descripcion').value
-    if(!title.length) return alert('Debes poner un titulo')
-    if(!descripcion.length) return alert('Debes poner una descripcion')
+    if (!title.length) return alert('Debes poner un titulo')
+    if (!descripcion.length) return alert('Debes poner una descripcion')
     const task = {
         titulo: title,
         description: descripcion
@@ -25,7 +25,7 @@ function saveTask(info) {
 
 
 function getTasks() {
-    let tasks =  JSON.parse(localStorage.getItem('tasks'))
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || []
     let tasksView = document.getElementById('tasks')
 
     tasksView.innerHTML = '';
@@ -36,24 +36,18 @@ function getTasks() {
         tasksView.innerHTML += `<div class="card mb-2 bg-secondary">
         <div class="body p-3 bg-dark">
         <p class="text-white">${title} - ${description}</p>
-        <a class="btn btn-success" onClick="deleteTask('${title}', '${description}')">Ok</a>
+        <a class="btn btn-success" onClick="deleteTask(${i})">Ok</a>
         </div>
         </div>`
-        
+
     }
 }
-
-function deleteTask(title, descripcion) {
+function deleteTask(i) {
     let tasks = JSON.parse(localStorage.getItem('tasks'))
-    for (let i = 0; i < tasks.length; i++) {
-        if(tasks[i].titulo == title && tasks[i].description == descripcion){
-            tasks.splice(i, 1)
-            localStorage.setItem('tasks', JSON.stringify(tasks))
-            getTasks()
-            return
-        }
-        
-    }
+    tasks.splice(i, 1)
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+    getTasks()
+    return
 }
 
 getTasks()
