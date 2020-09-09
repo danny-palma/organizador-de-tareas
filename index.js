@@ -3,7 +3,7 @@ const app = express()
 const port = '3000'
 
 app.get('/', (req, res) => {
-    res.end( app.use(express.static('public')))
+    res.end(express.static('public'))
 })
 
 app.listen(port, () => {
