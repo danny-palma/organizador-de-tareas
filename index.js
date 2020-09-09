@@ -3,9 +3,12 @@ const path = require('path')
 const app = express()
 
 app.set('port', 3000)
+app.set('views', path.join(__dirname, 'public'))
+app.set('view engine', 'ejs')
 
+app.use(express.static(path.join(__dirname, 'public')))
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/index.html' ))
+    res.render('index')
 })
 
 app.listen(app.get('port'), () => {
