@@ -4,11 +4,11 @@ const app = express()
 
 app.set('port', 3000)
 app.set('views', path.join(__dirname, 'public'))
-app.set('view engine', 'ejs')
+app.set('view engine', 'html')
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.get('/', (req, res) => {
-    res.render('index')
+    res.sendFile('index')
 })
 
 app.listen(app.get('port'), () => {
