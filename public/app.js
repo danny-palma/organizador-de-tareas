@@ -35,7 +35,8 @@ function getTasks() {
         let description = tasks[i].description
         tasksView.innerHTML += `<div class="card mb-2 bg-secondary">
         <div class="body p-3 bg-dark">
-        <p class="text-white">${title} - ${description}</p>
+        <p class="card bg-secondary text-white text-center">${title}</p>
+        <p class="text-white pt-1">${description}</p>
         <a class="btn btn-success" onClick="deleteTask(${i})">Ok</a>
         </div>
         </div>`
